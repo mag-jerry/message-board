@@ -1,10 +1,11 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <meta charset="UTF8">
-  <title>Message board</title>
- </head>
- <body>
-   @yield('content')
- </body>
+    <head>
+        <meta charset="utf-8">
+        <title>MessageBoard</title>
+    </head>
+
+    <body>
+        @yield('content')
+    </body>
 </html>

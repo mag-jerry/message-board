@@ -29,7 +29,9 @@ class MessagesController extends Controller
      */
     public function create()
     {
-        //
+        $message = new Message;
+        
+        return view('messages.create',['message' => $message,]);
     }
 
     /**
@@ -40,7 +42,11 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $message = new Message;
+       $message->content = $request->content;
+       $message->save();
+       
+       return redirect("/");
     }
 
     /**
@@ -51,7 +57,11 @@ class MessagesController extends Controller
      */
     public function show($id)
     {
-        //
+        $message = Message::find($id);
+
+        return view('messages.show', [
+            'message' => $message,
+        ]);
     }
 
     /**
@@ -62,7 +72,11 @@ class MessagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $message = Message::find($id);
+
+        return view('messages.edit', [
+            'message' => $message,
+        ]);
     }
 
     /**
@@ -74,7 +88,11 @@ class MessagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $message = Message::find($id);
+        $message->content = $request->content;
+        $message->save();
+        
+        return redirect("/");
     }
 
     /**
@@ -85,6 +103,10 @@ class MessagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $message = Message::find($id);
+        $message->delete();
+        
+        return redirect("/");
+        
     }
 }
